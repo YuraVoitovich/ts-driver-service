@@ -1,0 +1,28 @@
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: driver-service-group
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8070/auth/realms/modsen-realm
+          jwk-set-uri: http://localhost:8070/auth/realms/modsen-realm/protocol/openid-connect/certs
+
+eureka:
+  client:
+    enabled: false
+
+default:
+  kafka:
+    confirm-rating-receive-topic-name: driver_confirm_rating_receive
+    consume-rating-topic-name: rate_driver_topic
+
+
